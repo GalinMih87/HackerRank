@@ -1,0 +1,19 @@
+def weightedMean(X, W):
+    # Calculate the numerator and denominator for weighted mean
+    numerator = sum([x * w for x, w in zip(X, W)])
+    denominator = sum(W)
+
+    # Calculate the weighted mean
+    weighted_mean = numerator / denominator
+
+    # Print the weighted mean rounded to one decimal place
+    print("{:.1f}".format(weighted_mean))
+
+
+# Read input from stdin
+n = int(input())
+X = list(map(int, input().split()))
+W = list(map(int, input().split()))
+
+# Call the weightedMean function with the input arrays
+weightedMean(X, W)
