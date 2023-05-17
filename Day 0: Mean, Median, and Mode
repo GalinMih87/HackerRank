@@ -1,0 +1,28 @@
+from collections import Counter
+
+def calculate_stats(arr):
+    # Calculate the mean
+    mean = sum(arr) / len(arr)
+    # Calculate the median
+    sorted_arr = sorted(arr)
+    mid = len(arr) // 2
+    if len(arr) % 2 == 0:
+        median = (sorted_arr[mid - 1] + sorted_arr[mid]) / 2
+    else:
+        median = sorted_arr[mid]
+    # Calculate the mode
+    counts = Counter(arr)
+    mode = min(counts, key=lambda x: (-counts[x], x))
+
+    # Print the calculated values
+    print("{:.1f}".format(mean))
+    print("{:.1f}".format(median))
+    print(mode)
+
+
+# Read input from stdin
+n = int(input())
+arr = list(map(int, input().split()))
+
+# Call the calculate_stats function with the input array
+calculate_stats(arr)
