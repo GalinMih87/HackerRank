@@ -1,0 +1,23 @@
+import math
+
+def stdDev(arr):
+    # Calculate the mean
+    mean = sum(arr) / len(arr)
+
+    # Calculate the sum of squared differences from the mean
+    sum_squared_diff = sum((x - mean) ** 2 for x in arr)
+
+    # Calculate the variance and standard deviation
+    variance = sum_squared_diff / len(arr)
+    std_deviation = math.sqrt(variance)
+
+    return round(std_deviation, 1)
+
+
+# Input handling
+n = int(input())
+arr = list(map(int, input().split()))
+
+# Calculate and print the standard deviation
+result = stdDev(arr)
+print(result)
