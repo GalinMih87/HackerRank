@@ -1,0 +1,25 @@
+def quartiles(arr):
+    n = len(arr)
+    q1 = find_median(arr[:n//2])
+    q2 = find_median(arr)
+    q3 = find_median(arr[(n+1)//2:])
+    return [q1, q2, q3]
+
+def find_median(arr):
+    n = len(arr)
+    if n % 2 == 0:
+        median = (arr[n//2-1] + arr[n//2]) // 2
+    else:
+        median = arr[n//2]
+    return median
+
+# Input handling
+n = int(input())
+data = list(map(int, input().split()))
+
+# Sort the array
+data.sort()
+
+# Calculate quartiles and print the result
+result = quartiles(data)
+print('\n'.join(map(str, result)))
